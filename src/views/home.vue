@@ -1,10 +1,10 @@
 <template>
   <el-container>
     <div class="left-silder">
-      <my-slider></my-slider>
+      <my-slider :isCollapse="isCollapse"></my-slider>
     </div>
     <div class="right-main">
-      <my-header></my-header>
+      <my-header @collapseFun="handelCollapse"></my-header>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -16,7 +16,14 @@
   import mySlider from '@/components/layout/slider.vue';
   export default {
     data() {
-      return {}
+      return {
+        isCollapse: false,
+      }
+    },
+    methods:{
+      handelCollapse(val){
+        this.isCollapse = val;
+      }
     },
     components:{
       myHeader,mySlider

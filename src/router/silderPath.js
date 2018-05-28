@@ -1,8 +1,12 @@
 import abstract from '@/views/common/abstract.vue';
 
 import User from '@/views/setting/user.vue';
-import orderList from '@/views/orders/order-list.vue';
+
 import goodsList from '@/views/goods/goods-list.vue';
+import goodsPublist from '@/views/goods/goods-publish.vue';
+
+import orderList from '@/views/orders/order-list.vue';
+
 
 export default [
   {
@@ -46,6 +50,16 @@ export default [
           icon:'',
         },
         component:goodsList,
+      },
+      {
+        path:'publish',
+        name:'goodspublish',
+        meta:{
+          name:'发布商品',
+          auth:false,
+          icon:'',
+        },
+        component:goodsPublist,
       }
     ]
   },

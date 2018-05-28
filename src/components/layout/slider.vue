@@ -1,23 +1,57 @@
 <template>
-  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu unique-opened router>
-      <div v-for="(route , index) in Routers">
-        <el-submenu :key="index" :index="route.name">
-          <template slot="title"><i class="el-icon-message"></i>{{route.meta.name}}</template>
-          <el-menu-item v-for="(cRoute , cIndex) in route.children" :key="cIndex" :index="cRoute.name" :route="cRoute">{{cRoute.meta.name}}</el-menu-item>
-        </el-submenu>
-      </div>
+  <el-aside width="auto" style="background-color: rgb(238, 241, 246)">
+    <div :class="isCollapse ? 'logo min-logo' : 'logo'">
+      <img src="@/assets/logo.png" alt="">
+    </div>
+    <el-menu
+      class="el-menu"
+      :default-active="activeMenu"
+      unique-opened
+      router
+      @open="handleOpen"
+      @close="handleClose"
+      :collapse="isCollapse">
+      <el-submenu
+        v-for="(route , index) in Routers"
+        :key="index"
+        :index="route.name">
+        <template slot="title">
+          <i :class="route.meta.icon"></i>
+          <span slot="title">{{route.meta.name}}</span>
+        </template>
+        <el-menu-item
+          v-for="(cRoute , cIndex) in route.children"
+          :key="cIndex"
+          :index="cRoute.name"
+          :route="cRoute">
+          {{cRoute.meta.name}}
+        </el-menu-item>
+      </el-submenu>
     </el-menu>
   </el-aside>
 </template>
 <script>
   import sliderPath from '@/router/silderPath.js';//导入silder路由
   export default {
+    props:['isCollapse'],
     data(){
       return{
         Routers : sliderPath
       }
     },
+    computed: {
+      activeMenu: function(){
+        return this.$route.name
+      },
+    },
+    methods:{
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
   }
 </script>
 <style scoped lang="scss">
@@ -25,5 +59,28 @@
     height: 100%;
     overflow-y: auto;
     color: #333;
+    .logo{
+      width: 200px;
+      transition: width 0.5s linear;
+      img{
+        width: 100%;
+      }
+    }
+    .min-logo{
+      width: 64px;
+      transition: width 0.3s;
+    }
+    .el-menu:not(.el-menu--collapse) {
+      width: 200px;
+      min-height: 400px;
+    }
+    .el-menu--collapse{
+      .is-active{
+        i{
+          font-size:25px;
+          color: red;
+        }
+      }
+    }
   }
 </style>
