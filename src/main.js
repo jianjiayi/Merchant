@@ -14,6 +14,9 @@ require('video.js/dist/video-js.css');
 require('vue-video-player/src/custom-theme.css');
 Vue.use(VideoPlayer);
 
+import axios from './api/axios.js';
+Vue.prototype.$ajax = axios;
+
 Vue.config.productionTip = false;
 
 //路由拦截器

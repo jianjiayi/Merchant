@@ -3,11 +3,7 @@
     drag
     type="drag"
     :name="name"
-    :format="options.format"
-    :show-upload-list="false"
-    :max-size="options.size"
-    :on-format-error="handleFormatError"
-    :on-exceeded-size="handleMaxSize"
+    :before-upload="beforeUpload"
     :on-success="handleSuccess"
     :action="action">
     <i class="el-icon-upload"></i>
@@ -23,19 +19,28 @@
       }
     },
     methods: {
-      //校验格式
-      handleFormatError(file) {
-        this.$notify.warning({
-          title: '文件格式不正确',
-          message: '文件 ' + file.name + ' 格式不正确，请上传 '+this.options.format+'格式文件 。'
-        })
-      },
-      //限制大小
-      handleMaxSize(file) {
-        this.$notify.warning({
-          title: '超出文件大小限制',
-          message: '文件 ' + file.name + ' 太大，不能超过 '+this.options.size/1024+'M。'
-        })
+      beforeUpload(file){
+        let testmsg=file.name.substring(file.name.lastIndexOf('.')+1);
+        let  extension = false;
+        this.options.format.map(n => {
+          if(testmsg == n){
+            extension = true;
+          }
+        });
+        const isLt2M = file.size / 1024 / 1024 < 20
+        if(!extension) {
+          this.$message({
+            message: '上传文件只能是 '+this.options.format+'格式!',
+            type: 'warning'
+          });
+        }
+        if(!isLt2M) {
+          this.$message({
+            message: '上传文件大小不能超过 20MB!',
+            type: 'warning'
+          });
+        }
+        return extension && isLt2M
       },
       //上传成功
       handleSuccess (res, file) {
