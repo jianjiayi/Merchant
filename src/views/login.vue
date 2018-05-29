@@ -13,11 +13,14 @@
         <el-form-item  prop="pass">
           <el-input type="password" v-model="ruleForm.pass" auto-complete="off" placeholder="请输入密码"></el-input>
         </el-form-item>
+        <p class="forget-password">
+          <router-link to="/portal/forget">忘记密码</router-link>
+        </p>
         <el-form-item>
           <el-button class="login-btn" type="primary" @click="submitForm('ruleForm')">登录</el-button>
         </el-form-item>
         <el-form-item style="text-align: center">
-          <router-link to="/">注册</router-link>
+          <el-button class="login-btn"  @click="$router.push({path:'/register'})">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -90,6 +93,11 @@
       border-radius: 20px;
       padding: 60px 30px 20px 30px;
       background: rgba(225,225,225,0.5);
+      .forget-password{
+        text-align: right;
+        margin: -10px 10px 10px 10px;
+        font-size: 12px;
+      }
       .login-btn{
         width: 100%;
       }

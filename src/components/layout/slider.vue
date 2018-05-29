@@ -10,6 +10,7 @@
       router
       @open="handleOpen"
       @close="handleClose"
+      collapse-transition
       :collapse="isCollapse">
       <el-submenu
         v-for="(route , index) in Routers"
@@ -24,7 +25,10 @@
           :key="cIndex"
           :index="cRoute.name"
           :route="cRoute">
-          {{cRoute.meta.name}}
+          <template slot="title">
+            <i :class="cRoute.meta.icon"></i>
+            <span slot="title">{{cRoute.meta.name}}</span>
+          </template>
         </el-menu-item>
       </el-submenu>
     </el-menu>
@@ -41,7 +45,11 @@
     },
     computed: {
       activeMenu: function(){
-        return this.$route.name
+        if(this.$route.name === 'home'){
+          return '';
+        }else{
+          return this.$route.name
+        }
       },
     },
     methods:{
@@ -55,6 +63,10 @@
   }
 </script>
 <style scoped lang="scss">
+  .el-submenu__title >i.iconfont{
+    font-size: 22px;
+  }
+
   .el-aside {
     height: 100%;
     overflow-y: auto;
@@ -76,7 +88,7 @@
     }
     .el-menu--collapse{
       .is-active{
-        i{
+        i.iconfont{
           font-size:25px;
           color: red;
         }

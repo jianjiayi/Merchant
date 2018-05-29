@@ -15,7 +15,7 @@ export default [
     meta:{
       name:'基本设置',
       auth:false,//这个字段以后用来验证必须登录才可以查看
-      icon:'el-icon-setting',//用来存放图标
+      icon:'iconfont icon-shezhi',//用来存放图标
     },
     component:abstract,
     children:[
@@ -25,7 +25,7 @@ export default [
         meta:{
           name:'个人中心',
           auth:false,
-          icon:'',
+          icon:'iconfont icon-gerenzhongxin',
         },
         component:User,
       }
@@ -37,7 +37,7 @@ export default [
     meta:{
       name:'商品管理',
       auth:false,
-      icon:'el-icon-picture',
+      icon:'iconfont icon-shangpin',
     },
     component:abstract,
     children:[
@@ -47,7 +47,7 @@ export default [
         meta:{
           name:'商品列表',
           auth:false,
-          icon:'',
+          icon:'iconfont icon-liebiao',
         },
         component:goodsList,
       },
@@ -57,7 +57,7 @@ export default [
         meta:{
           name:'发布商品',
           auth:false,
-          icon:'',
+          icon:'iconfont icon-fabuguanli',
         },
         component:goodsPublist,
       }
@@ -69,7 +69,7 @@ export default [
     meta:{
       name:'订单管理',
       auth:false,
-      icon:'el-icon-date',
+      icon:'iconfont icon-dingdan',
     },
     component:abstract,
     children:[
@@ -79,7 +79,7 @@ export default [
         meta:{
           name:'订单列表',
           auth:false,
-          icon:'',
+          icon:'iconfont icon-liebiao',
         },
         component:orderList,
       }

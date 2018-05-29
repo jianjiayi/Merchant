@@ -6,6 +6,11 @@
     <div class="right-main">
       <my-header @collapseFun="handelCollapse"></my-header>
       <el-main>
+        <div class="tob-bar">
+          <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item v-for="(item,index) in breadcrumbs" :key="index">{{item.meta.name}}</el-breadcrumb-item>
+          </el-breadcrumb>
+        </div>
         <router-view></router-view>
       </el-main>
     </div>
@@ -18,6 +23,11 @@
     data() {
       return {
         isCollapse: false,
+      }
+    },
+    computed: {
+      breadcrumbs(){
+        return (this.$route && this.$route.matched) || [];
       }
     },
     methods:{
@@ -48,6 +58,17 @@
       .el-main{
         height: 100%;
         overflow-y: auto;
+        padding: 10px 20px 20px 20px;
+        .tob-bar{
+          height: 38px;
+          color: #666;
+          cursor: pointer;
+          position: relative;
+          border-bottom: 1px solid #ccc;
+          .el-breadcrumb{
+            line-height: 38px;
+          }
+        }
       }
     }
   }
