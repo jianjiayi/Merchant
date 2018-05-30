@@ -39,8 +39,8 @@
       };
       return {
         ruleForm: {
-          name:'',
-          pass: '',
+          name:'admin',
+          pass: '111111',
         },
         rules: {
           name:[
@@ -59,7 +59,6 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
             let user = {
               name : 'jsp',
               pawd : '111111',

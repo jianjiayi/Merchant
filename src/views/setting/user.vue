@@ -125,7 +125,9 @@
     <el-dialog
       :title="'修改'+modelForm.label"
       :visible.sync="modelActive"
-      width="450px">
+      width="450px"
+      :center="true"
+      :show-close="false">
       <el-form ref="modelForm" :model="modelForm" :rules="modelFormRuleValidate" label-position="left" label-width="100px">
         <el-form-item :label="modelForm.label" prop="changeName">
           <el-input v-model="modelForm.changeName" type="textarea" :autosize="{minRows: 2,maxRows: 5}" clearable placeholder="请输入..."></el-input>
