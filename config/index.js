@@ -10,18 +10,18 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/api': {
-        target: 'http://192.168.8.189:8082/NewDwShop',  // 接口域名
-        changeOrigin: true,  //是否跨域
-        pathRewrite: {
-          '^/api': ''   //需要rewrite重写的,
-        }
-      }
-    },
+    // proxyTable: {
+    //   '/api': {
+    //     target: 'http://192.168.8.189:8082/NewDwShop',  // 接口域名
+    //     changeOrigin: true,  //是否跨域
+    //     pathRewrite: {
+    //       '^/api': ''   //需要rewrite重写的,
+    //     }
+    //   }
+    // },
 
     // Various Dev Server settings
-    host: '192.168.1.103', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

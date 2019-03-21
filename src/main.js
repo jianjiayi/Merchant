@@ -14,7 +14,6 @@ require('video.js/dist/video-js.css');
 require('vue-video-player/src/custom-theme.css');
 Vue.use(VideoPlayer);
 
-require("./assets/icon/iconfont.css");
 
 import axios from './api/axios.js';
 Vue.prototype.$ajax = axios;

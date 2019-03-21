@@ -215,7 +215,7 @@
       <!--富文本-->
       <el-form-item label="商品详情">
         <div class="editor-container" style="line-height: 20px">
-          <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE>
+          <!-- <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE> -->
         </div>
       </el-form-item>
 
@@ -249,7 +249,7 @@
   import vueCropper from '@/components/vue-cropper.vue';
   import videoPlayer from '@/components/video-player.vue';
   import uploadFile from '@/components/upload-file.vue';
-  import UE from '@/components/Ueditor.vue';
+  // import UE from '@/components/Ueditor.vue';
 
   export default {
     props:['formdata'],
@@ -587,7 +587,6 @@
       videoPlayer,
       uploadFile,
       city,
-      UE
     }
   }
 </script>
