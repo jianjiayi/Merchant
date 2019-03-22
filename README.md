@@ -1,8 +1,7 @@
-# admin
+# vue2+vue-router+vuex+axios+element-ui全家桶实现的后台管理页面
 
 > A Vue.js project
 
-## Build Setup
 
 ## 如果你觉得还可以的话，请给个小星星
 
